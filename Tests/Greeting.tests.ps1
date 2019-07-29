@@ -10,6 +10,6 @@ Describe "Greeting" {
     it "Should return 'Hello, my friend.' if {Name} is null" {
         $Result = Greet -Name $null
 
-        $Result | Should -Be "Hello, my friend,"
+        $Result | Should -Be "Hello, my friend."
     }
 }
