@@ -6,10 +6,10 @@ pipeline {
             steps {
                 powershell(label: 'Invoke Pester', script: 'Invoke-Pester . -OutputFile ./testResults.xml -OutputFormat NUnitXml')
             }
-        }
-        post {
-            always {
-                step([$class: 'JUnitResultArchiver', testResults: './testResults.xml'])
+            post {
+                always {
+                    step([$class: 'JUnitResultArchiver', testResults: './testResults.xml'])
+                }
             }
         }
     }
