@@ -1,6 +1,4 @@
 pipeline {
-    agent { 'any' }
-    
     stages {
         stage('Run Pester Tests') {
             steps {
