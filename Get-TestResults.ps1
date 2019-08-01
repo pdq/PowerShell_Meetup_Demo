@@ -30,4 +30,4 @@ foreach ($test in $Results.TestResult) {
     $XML.SelectSingleNode("testsuites").SelectSingleNode("testsuite").AppendChild($NewElement)
 }
 
-$XML.Save("$PSScriptRoot\Tests\testResults.xml")
+$XML.Save("$PSScriptRoot\testResults.xml")

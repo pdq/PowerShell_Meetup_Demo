@@ -12,4 +12,9 @@ Describe "Greeting" {
 
         $Result | Should -Be "Hello, my friend."
     }
+
+    # Let's add a failing test
+    It "{True} should be {False}" {
+        $True | Should -Be $False
+    }
 }

@@ -8,9 +8,7 @@ pipeline {
             }
             post {
                 always {
-                    retry(2) {
-                        step([$class: 'JUnitResultArchiver', testResults: 'Tests/testResults.xml'])
-                    }
+                    step([$class: 'JUnitResultArchiver', testResults: 'testResults.xml'])
                 }
             }
         }
