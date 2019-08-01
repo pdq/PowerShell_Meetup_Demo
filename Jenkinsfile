@@ -8,7 +8,7 @@ pipeline {
             }
             post {
                 always {
-                    step([$class: 'JUnitResultArchiver', testResults: './testResults.xml'])
+                    step([$class: 'JUnitResultArchiver', testResults: 'testResults.xml'])
                 }
             }
         }
