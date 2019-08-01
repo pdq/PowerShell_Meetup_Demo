@@ -5,7 +5,7 @@ pipeline {
         stage('Run Pester Tests') {
             steps {
                 // powershell(label: 'Invoke Pester', script: 'Invoke-Pester . -OutputFile ./testResults.xml')
-                powershell(label: 'fake news' script: "Write-Host 'Hi there!'")
+                powershell(label: 'fake news', script: "Write-Host 'Hi there!'")
             }
             post {
                 always {
