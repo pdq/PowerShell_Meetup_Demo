@@ -31,5 +31,5 @@ foreach ($test in $Results.TestResult) {
 $XML.Save("$PSScriptRoot\testResults.xml")
 
 if ($Results.FailedCount) {
-    throw "test failed"
+    throw "$($Results.FailedCount)"
 } 
