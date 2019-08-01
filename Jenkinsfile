@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'windows' }
+    agent { label 'windows && pester' }
 
     stages {
         stage('Run Pester Tests') {
