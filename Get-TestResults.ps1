@@ -1,4 +1,4 @@
-$Results = Invoke-Pester -PassThru 
+$Results = Invoke-Pester -PassThru -Quiet
 
 Write-Host "$($Results | ConvertFrom-Json)"
 
