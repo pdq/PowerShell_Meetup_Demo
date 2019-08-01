@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<testsuites>
-  <testsuite Failures="0" Name="Automated Tests" tests="2">
-    <testcase classname="Greeting" name="Should return 'Hello, {Name}.'" />
-    <testcase classname="Greeting" name="Should return 'Hello, my friend.' if {Name} is null" />
-  </testsuite>
-</testsuites>
