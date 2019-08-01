@@ -20,7 +20,7 @@ foreach ($test in $Results.TestResult) {
     if (!$test.Passed) {
         $FailureElement = $XML.CreateElement("failure")
         $FailureElement.SetAttribute("type", "FailedTest")
-        $FailureElement.InnerText = "$($test.FailureMessage) - Stack: $($test.StackTrace)"
+        $FailureElement.InnerText = "$($test.FailureMessage)`n`r`n`r$($test.StackTrace)"
 
         $NewElement.AppendChild($FailureElement)
     }
@@ -31,7 +31,5 @@ foreach ($test in $Results.TestResult) {
 $XML.Save("$PSScriptRoot\testResults.xml")
 
 if ($Results.FailedCount) {
-    return 1
-} else {
-    return 0
-}
+    throw "test failed"
+} 
