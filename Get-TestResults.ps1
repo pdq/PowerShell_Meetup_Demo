@@ -1,5 +1,6 @@
 $Results = Invoke-Pester -PassThru 
 
+Write-Host "$($Results | ConvertFrom-Json)"
 
 $XMLString = @"
 <?xml version="1.0" encoding="utf-8"?>
