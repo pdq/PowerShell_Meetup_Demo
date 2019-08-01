@@ -1,6 +1,4 @@
-$Results = Invoke-Pester -PassThru -Quiet
-
-Write-Host "$($Results | ConvertFrom-Json)"
+$Results = Invoke-Pester -PassThru -Show None
 
 $XMLString = @"
 <?xml version="1.0" encoding="utf-8"?>
@@ -22,7 +20,7 @@ foreach ($test in $Results.TestResult) {
     if (!$test.Passed) {
         $FailureElement = $XML.CreateElement("failure")
         $FailureElement.SetAttribute("type", "FailedTest")
-        $FailureElement.InnerText = $test.Result
+        $FailureElement.InnerText = "$($test.FailureMessage) - Stack: $($test.StackTrace)"
 
         $NewElement.AppendChild($FailureElement)
     }
@@ -31,3 +29,9 @@ foreach ($test in $Results.TestResult) {
 }
 
 $XML.Save("$PSScriptRoot\testResults.xml")
+
+if ($Results.FailedCount) {
+    return 1
+} else {
+    return 0
+}
