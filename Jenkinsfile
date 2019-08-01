@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'windows' }
+    agent { label 'windows && pester' }
 
     stages {
         stage('Run Pester Tests') {
@@ -8,7 +8,9 @@ pipeline {
             }
             post {
                 always {
-                    step([$class: 'JUnitResultArchiver', testResults: 'testResults.xml'])
+                    retry(2) {
+                        step([$class: 'JUnitResultArchiver', testResults: './testResults.xml'])
+                    }
                 }
             }
         }
