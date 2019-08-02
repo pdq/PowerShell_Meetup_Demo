@@ -3,5 +3,13 @@ function Greet{
         [string]$Name
     )
 
-    "Hello, $Name."
+    if ( $Name ) {
+
+        "Hello, $Name."
+
+    } else {
+
+        "Hello, my friend."
+
+    }
 }
